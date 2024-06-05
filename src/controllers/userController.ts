@@ -61,7 +61,7 @@ class userController {
 		try {
 			const activationLink = req.params.link;
 			await userService.acivate(activationLink);
-			return res.redirect(process.env.CLIENT_URL!);
+			return res.redirect(process.env.CLIENT_URL! + '/chat');
 		} catch (error) {
 			next(error);
 		}
