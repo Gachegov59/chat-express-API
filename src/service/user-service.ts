@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { UserModel, validateUserReg, validateUserLogin } from '../models/UserModel';
+import { UserModel } from '../models/UserModel';
 import { errors, services } from '../config/constants';
 import bcrypt from 'bcrypt';
 import * as uuid from 'uuid';
@@ -7,13 +7,9 @@ import mailService from './mail-service';
 import tokenService from './token-service';
 import UserDTO from '../dtos/user.dto';
 import { ApiError } from '../exceptions/app-error';
-
-interface IUser {
-	email: string;
-	_id: string;
-	isActivated: boolean;
-}
-
+import { IUser } from '../types/User';
+import { validateUserLogin, validateUserReg } from '../validation/UserValidation';
+dotenv.config();
 type logoutReturn = Promise<{ acknowledged: boolean; deletedCount: number }>;
 
 class UserService {
@@ -36,7 +32,7 @@ class UserService {
 
 		await mailService.sendActivationMail(email, `${services.MAIL.LINK_ACTIVATE}/${activationLink}`);
 
-		const userDTO = new UserDTO(user as unknown as IUser);
+		const userDTO = new UserDTO({ email: user.email, _id: user._id, isActivated: user.isActivated });
 		const tokens = await tokenService.generateTokens({ ...userDTO });
 
 		await tokenService.saveToken(userDTO.id, tokens.refreshToken);
@@ -62,7 +58,7 @@ class UserService {
 
 		if (!isPassEquals) throw ApiError.BadRequest(errors.WRONG_PASSORD);
 
-		const userDTO = new UserDTO(user as unknown as IUser);
+		const userDTO = new UserDTO({ email: user.email, _id: user._id, isActivated: user.isActivated });
 		const tokens = tokenService.generateTokens({ ...userDTO });
 		await tokenService.saveToken(userDTO.id, tokens.refreshToken);
 		return { ...tokens, user: userDTO };
@@ -73,15 +69,32 @@ class UserService {
 	}
 
 	async refresh(refreshToken: string) {
-		if (!refreshToken) throw ApiError.UnautorizedError;
+		if (!refreshToken) {
+			console.error('Refresh token is missing');
+			throw ApiError.UnauthorizedError;
+		}
+
 		const userData = tokenService.validateRefreshToken(refreshToken) as unknown as { id: string };
 		const tokenFromDb = await tokenService.findToken(refreshToken);
-		if (!userData || !tokenFromDb) throw ApiError.UnautorizedError;
+		if (!userData) {
+			console.error('Invalid refresh token');
+			throw ApiError.UnauthorizedError();
+		}
+		if (!tokenFromDb) {
+			console.error('Refresh token not found in database');
+			throw ApiError.UnauthorizedError();
+		}
 
 		const user = await UserModel.findById(userData.id);
-		const userDTO = new UserDTO(user as unknown as IUser);
+		if (!user) {
+			console.error('User not found');
+			throw ApiError.BadRequest(errors.USER_NOT_FOUND);
+		}
+
+		const userDTO = new UserDTO({ email: user.email, _id: user._id, isActivated: user.isActivated });
 		const tokens = tokenService.generateTokens({ ...userDTO });
 		await tokenService.saveToken(userDTO.id, tokens.refreshToken);
+
 		return { ...tokens, user: userDTO };
 	}
 

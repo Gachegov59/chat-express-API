@@ -1,4 +1,3 @@
-import { extend } from 'joi';
 import { errors } from '../config/constants';
 
 export class ApiError extends Error {
@@ -11,7 +10,7 @@ export class ApiError extends Error {
         this.errors = errors;
     }
 
-    static UnautorizedError(): ApiError {
+    static UnauthorizedError(): ApiError {
         return new ApiError(401, errors.USER_IS_NOT_AUTHORIZED);
     }
 

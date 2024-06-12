@@ -1,6 +1,6 @@
 import nodeMailer from 'nodemailer';
 import dotenv from 'dotenv';
-
+dotenv.config();
 class MailService {
 	private transporter: nodeMailer.Transporter;
 
