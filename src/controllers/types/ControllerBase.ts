@@ -6,5 +6,3 @@ export type ControllerFunction<ReqParamsDictionary = {}, ResBody = {}, ReqBody =
 	res: Response<ResBody>,
 	next: NextFunction
 ) => R;
-
-

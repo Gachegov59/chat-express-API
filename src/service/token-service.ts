@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import { tokenModel } from '../models/TokenModel';
 dotenv.config();
 const { JWT_ACCESS_SECRET, JWT_REFRESH_SECRET } = process.env;
@@ -39,9 +39,9 @@ class TokenService {
 		return await tokenModel.findOne({ refreshToken });
 	}
 
-	validateAccessToken(token: string) {
+	validateAccessToken(token: string): JwtPayload | null {
 		try {
-			const userData = jwt.verify(token, JWT_ACCESS_SECRET!) as jwt.JwtPayload;
+			const userData = jwt.verify(token, JWT_ACCESS_SECRET!) as JwtPayload;
 			return userData;
 		} catch (error) {
 			console.error('Invalid access token', error);

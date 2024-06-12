@@ -122,3 +122,13 @@
 2024-06-12 18:15:04 [user-service] error: Error in GET /api/user/refresh: undefined
 2024-06-12 18:15:14 [user-service] error: Error in GET /api/user/refresh: undefined
 2024-06-12 18:16:44 [user-service] error: Error in GET /api/user/refresh: undefined
+2024-06-12 19:04:51 [user-service] error: Error: User is not authorized
+    at Function.UnauthorizedError (C:\Users\gache\GIT\PROJECTS\chat-API\src\exceptions\app-error.ts:14:16)
+    at UserService.refresh (C:\Users\gache\GIT\PROJECTS\chat-API\src\service\user-service.ts:85:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async refreshTokenUser (C:\Users\gache\GIT\PROJECTS\chat-API\src\controllers\userController.ts:73:21)
+2024-06-12 19:04:51 [user-service] error: Error: User is not authorized
+    at Function.UnauthorizedError (C:\Users\gache\GIT\PROJECTS\chat-API\src\exceptions\app-error.ts:14:16)
+    at UserService.refresh (C:\Users\gache\GIT\PROJECTS\chat-API\src\service\user-service.ts:85:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async refreshTokenUser (C:\Users\gache\GIT\PROJECTS\chat-API\src\controllers\userController.ts:73:21)

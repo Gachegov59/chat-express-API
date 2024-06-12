@@ -193,3 +193,87 @@
 2024-06-12 18:55:43 [user-service] info: MongoDB connected chat
 2024-06-12 18:55:52 [user-service] info: MongoDB connected chat
 2024-06-12 18:57:52 [user-service] info: MongoDB connected chat
+2024-06-12 18:58:15 [user-service] info: MongoDB connected chat
+2024-06-12 19:04:51 [user-service] error: Error: User is not authorized
+    at Function.UnauthorizedError (C:\Users\gache\GIT\PROJECTS\chat-API\src\exceptions\app-error.ts:14:16)
+    at UserService.refresh (C:\Users\gache\GIT\PROJECTS\chat-API\src\service\user-service.ts:85:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async refreshTokenUser (C:\Users\gache\GIT\PROJECTS\chat-API\src\controllers\userController.ts:73:21)
+2024-06-12 19:04:51 [user-service] error: Error: User is not authorized
+    at Function.UnauthorizedError (C:\Users\gache\GIT\PROJECTS\chat-API\src\exceptions\app-error.ts:14:16)
+    at UserService.refresh (C:\Users\gache\GIT\PROJECTS\chat-API\src\service\user-service.ts:85:19)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async refreshTokenUser (C:\Users\gache\GIT\PROJECTS\chat-API\src\controllers\userController.ts:73:21)
+2024-06-12 19:17:13 [user-service] info: MongoDB connected chat
+2024-06-12 19:17:22 [user-service] info: MongoDB connected chat
+2024-06-12 19:18:11 [user-service] info: MongoDB connected chat
+2024-06-12 19:21:37 [user-service] info: MongoDB connected chat
+2024-06-12 19:21:57 [user-service] info: MongoDB connected chat
+2024-06-12 19:23:37 [user-service] info: MongoDB connected chat
+2024-06-12 19:23:59 [user-service] info: MongoDB connected chat
+2024-06-12 19:24:39 [user-service] info: MongoDB connected chat
+2024-06-12 19:25:47 [user-service] info: MongoDB connected chat
+2024-06-12 19:25:55 [user-service] info: MongoDB connected chat
+2024-06-12 19:46:21 [user-service] info: MongoDB connected chat
+2024-06-12 19:46:30 [user-service] info: MongoDB connected chat
+2024-06-12 19:46:41 [user-service] info: MongoDB connected chat
+2024-06-12 19:47:41 [user-service] info: MongoDB connected chat
+2024-06-12 19:47:47 [user-service] info: MongoDB connected chat
+2024-06-12 19:47:56 [user-service] info: MongoDB connected chat
+2024-06-12 19:48:19 [user-service] info: MongoDB connected chat
+2024-06-12 19:48:33 [user-service] info: MongoDB connected chat
+2024-06-12 19:49:25 [user-service] info: MongoDB connected chat
+2024-06-12 19:53:20 [user-service] info: MongoDB connected chat
+2024-06-12 19:54:32 [user-service] info: MongoDB connected chat
+2024-06-12 19:54:50 [user-service] info: MongoDB connected chat
+2024-06-12 19:57:50 [user-service] info: MongoDB connected chat
+2024-06-12 19:58:08 [user-service] info: MongoDB connected chat
+2024-06-12 19:59:06 [user-service] info: MongoDB connected chat
+2024-06-12 20:00:30 [user-service] info: MongoDB connected chat
+2024-06-12 20:01:07 [user-service] info: MongoDB connected chat
+2024-06-12 20:01:55 [user-service] info: MongoDB connected chat
+2024-06-12 20:02:19 [user-service] info: MongoDB connected chat
+2024-06-12 20:03:43 [user-service] info: MongoDB connected chat
+2024-06-12 20:06:23 [user-service] info: MongoDB connected chat
+2024-06-12 20:08:04 [user-service] info: MongoDB connected chat
+2024-06-12 20:09:10 [user-service] info: MongoDB connected chat
+2024-06-12 20:09:27 [user-service] info: MongoDB connected chat
+2024-06-12 20:11:43 [user-service] info: MongoDB connected chat
+2024-06-12 20:11:52 [user-service] info: MongoDB connected chat
+2024-06-12 20:21:45 [user-service] info: MongoDB connected chat
+2024-06-12 20:23:46 [user-service] info: MongoDB connected chat
+2024-06-12 20:24:08 [user-service] info: MongoDB connected chat
+2024-06-12 20:24:36 [user-service] info: MongoDB connected chat
+2024-06-12 20:24:42 [user-service] info: MongoDB connected chat
+2024-06-12 20:24:53 [user-service] info: MongoDB connected chat
+2024-06-12 20:24:58 [user-service] info: MongoDB connected chat
+2024-06-12 20:25:05 [user-service] info: MongoDB connected chat
+2024-06-12 20:25:46 [user-service] info: MongoDB connected chat
+2024-06-12 20:25:52 [user-service] info: MongoDB connected chat
+2024-06-12 20:58:48 [user-service] info: MongoDB connected chat
+2024-06-12 20:59:15 [user-service] info: MongoDB connected chat
+2024-06-12 20:59:36 [user-service] info: MongoDB connected chat
+2024-06-12 21:04:29 [user-service] info: MongoDB connected chat
+2024-06-12 21:17:36 [user-service] info: MongoDB connected chat
+2024-06-12 21:23:20 [user-service] info: MongoDB connected chat
+2024-06-12 21:24:21 [user-service] info: MongoDB connected chat
+2024-06-12 21:24:27 [user-service] info: MongoDB connected chat
+2024-06-12 21:25:23 [user-service] info: MongoDB connected chat
+2024-06-12 21:26:07 [user-service] info: MongoDB connected chat
+2024-06-12 21:26:34 [user-service] info: MongoDB connected chat
+2024-06-12 21:28:24 [user-service] info: MongoDB connected chat
+2024-06-12 21:30:49 [user-service] info: MongoDB connected chat
+2024-06-12 21:31:12 [user-service] info: MongoDB connected chat
+2024-06-12 21:31:29 [user-service] info: MongoDB connected chat
+2024-06-12 21:33:49 [user-service] info: MongoDB connected chat
+2024-06-12 21:35:41 [user-service] info: MongoDB connected chat
+2024-06-12 21:36:41 [user-service] info: MongoDB connected chat
+2024-06-12 21:36:55 [user-service] info: MongoDB connected chat
+2024-06-12 21:55:56 [user-service] info: MongoDB connected chat
+2024-06-12 21:56:33 [user-service] info: MongoDB connected chat
+2024-06-12 22:00:12 [user-service] info: MongoDB connected chat
+2024-06-12 22:00:50 [user-service] info: MongoDB connected chat
+2024-06-12 22:01:11 [user-service] info: MongoDB connected chat
+2024-06-12 22:01:31 [user-service] info: MongoDB connected chat
+2024-06-12 22:04:36 [user-service] info: MongoDB connected chat
+2024-06-12 22:05:15 [user-service] info: MongoDB connected chat

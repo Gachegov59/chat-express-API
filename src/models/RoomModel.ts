@@ -1,20 +1,18 @@
-// import mongoose, { Schema, Document, model } from 'mongoose';
-// import { IUser } from './UserModel';
+import mongoose, { Schema, model } from 'mongoose';
+import { IRoom } from '../types/Room';
 
-// interface IRoom extends Document {
-//   name: string;
-//   users: IUser['_id'][];
-//   creator: IUser['_id'];
-//   createdAt: Date;
-// }
+const roomSchema = new Schema<IRoom>({
+  name: { type: String, required: true },
+  users: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
+  creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  settings: {
+    type: new Schema({
+      allowGuests: { type: Boolean, default: true },
+    }),
+    default: {},
+  },
+});
 
-// const roomSchema = new Schema<IRoom>({
-//   name: { type: String, required: true },
-//   users: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }],
-//   creator: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-//   createdAt: { type: Date, default: Date.now },
-// });
+const RoomModel = model<IRoom>('Room', roomSchema);
 
-// const RoomModel = model<IRoom>('Room', roomSchema);
-
-// export { RoomModel, IRoom };
+export { RoomModel };

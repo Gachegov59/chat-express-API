@@ -5,16 +5,6 @@ interface UserSettings {
 	language: 'en' | 'ru' | 'iw';
 }
 
-// interface IUser {
-// 	id: string;
-//     firstName: string;
-// 	lastName: string;
-// 	status: boolean;
-// 	avatar?: string;
-// 	chatRooms?: [];
-// }
-
-
 interface IUser extends Document {
   id: string;
   email: string;
@@ -28,7 +18,5 @@ interface IUser extends Document {
   status: boolean;
   chatRooms?: [];
 }
-
-// export { IUser, UserSettings };
 
 export { IUser, UserSettings };

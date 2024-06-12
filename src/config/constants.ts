@@ -1,6 +1,6 @@
 type obejctString = {
 	[key: string]: string;
-}
+};
 class Endpoints {
 	USER: obejctString = {
 		USERS_BASE_ROUTE: '/api/user',
@@ -11,12 +11,14 @@ class Endpoints {
 		REFRESH: '/refresh',
 		USERS: '/users',
 	};
-	// ROOM: obejctString = {
-	// 	ROOM_BASE_ROUTE: '/api/room',
-	// 	CREATE_NEW_ROOM: '/create',
-	// 	DELETE_ROOM: '/delete/:id',
-
-	// };
+	ROOM: obejctString = {
+		ROOM_BASE_ROUTE: '/api/room',
+		CREATE: '/create',
+		DELETE: '/delete/:id',
+		INVITE: '/invite',
+		LEAVE: '/leave',
+		GET_ROOMS: '/user/:userId',
+	};
 }
 
 class Errors {
@@ -27,11 +29,10 @@ class Errors {
 	USER_WITH_THIS_EMAIL_NOT_FOUND = 'User with this email not found';
 	USER_IS_NOT_AUTHORIZED = 'User is not authorized';
 	INVALID_LINK_ACTIVATION = 'Invalid link activation';
-	UNEXPECTED_SERVER_ERROR = 'Unexpected server error😒'; 
-	USER_NOT_FOUND = 'User not found'; 
-	WRONG_PASSORD = 'Wrong passord'; 
+	UNEXPECTED_SERVER_ERROR = 'Unexpected server error😒';
+	USER_NOT_FOUND = 'User not found';
+	WRONG_PASSORD = 'Wrong passord';
 }
-
 
 class Services {
 	MAIL: obejctString = {
