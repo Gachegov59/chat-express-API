@@ -16,8 +16,8 @@ class userController {
 				throw ApiError.BadRequest(validObj.error.toString(), validObj.error.details);
 			}
 
-			const { email, password } = req.body;
-			const userData = await userService.registration(email, password);
+			const { email, password, firstName, lastName } = req.body;
+			const userData = await userService.registration(email, password, firstName, lastName);
 
 			res.cookie('refreshToken', userData?.refreshToken, {
 				maxAge: 30 * 24 * 60 * 60 * 1000,
@@ -61,7 +61,7 @@ class userController {
 		try {
 			const activationLink = req.params.link;
 			await userService.acivate(activationLink);
-			return res.redirect(process.env.CLIENT_URL! + '/chat');
+			return res.redirect(process.env.CLIENT_URL!);
 		} catch (error) {
 			next(error);
 		}

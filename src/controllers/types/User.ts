@@ -4,6 +4,8 @@ import { ControllerFunction } from '../types/ControllerBase';
 interface IUserCreateReqBody {
 	email: string;
 	password: string;
+	firstName: string;
+	lastName: string;
 }
 
 interface IUserCreateResBody {

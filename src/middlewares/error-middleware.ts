@@ -5,7 +5,8 @@ import { errors } from '../config/constants';
 import logger from '../utils/logger';
 
 export default function (err: Error, req: Request, res: Response, next: NextFunction):  Response {
-    logger.error(`${err}`);
+    // logger.error(`${err}`);
+	logger.error(`Error in ${req.method} ${req.url}: ${err.message}`, err);
 	console.log(err);
 	if (err instanceof ApiError) {
 		return res.status(err.status).json({ message: err.message, errors: err.errors });

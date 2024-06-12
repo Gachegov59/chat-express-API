@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import { UserModel } from '../models/UserModel';
+import { UserModel, validateUserReg, validateUserLogin } from '../models/UserModel';
 import { errors, services } from '../config/constants';
 import bcrypt from 'bcrypt';
 import * as uuid from 'uuid';
@@ -15,20 +15,24 @@ interface IUser {
 }
 
 type logoutReturn = Promise<{ acknowledged: boolean; deletedCount: number }>;
-// type registrationReturn = {
-// 	user: UserDTO;
-// 	accessToken: string;
-// 	refreshToken: string;
-// };
 
 class UserService {
-	async registration(email: string, password: string) {
+	async registration(email: string, password: string, firstName: string, lastName: string) {
+		const { error } = validateUserReg({ email, password, firstName, lastName });
+		if (error) throw ApiError.BadRequest(error.details[0].message);
+
 		const candidate = await UserModel.findOne({ email });
 		if (candidate) throw ApiError.BadRequest(errors.USER_WITH_THIS_EMAIL_ALREADY_EXIST);
 
 		const hashPassword = await bcrypt.hash(password, 3);
 		const activationLink: string = uuid.v4();
-		const user = await UserModel.create({ email, password: hashPassword, activationLink });
+		const user = await UserModel.create({
+			email,
+			password: hashPassword,
+			activationLink,
+			firstName,
+			lastName,
+		});
 
 		await mailService.sendActivationMail(email, `${services.MAIL.LINK_ACTIVATE}/${activationLink}`);
 
@@ -48,6 +52,9 @@ class UserService {
 	}
 
 	async login(email: string, password: string) {
+		const { error } = validateUserLogin({ email, password });
+		if (error) throw ApiError.BadRequest(error.details[0].message);
+
 		const user = await UserModel.findOne({ email });
 		if (!user) throw ApiError.BadRequest(errors.USER_NOT_FOUND);
 

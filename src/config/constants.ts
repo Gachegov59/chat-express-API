@@ -11,13 +11,19 @@ class Endpoints {
 		REFRESH: '/refresh',
 		USERS: '/users',
 	};
+	// ROOM: obejctString = {
+	// 	ROOM_BASE_ROUTE: '/api/room',
+	// 	CREATE_NEW_ROOM: '/create',
+	// 	DELETE_ROOM: '/delete/:id',
+
+	// };
 }
 
 class Errors {
 	ENTITY_NOT_FOUND_MESSAGE = 'Entity not found!';
 	INVALID_QUERY_PARAMETERS_MESSAGE = 'Invalid query parameters!';
 	AUTHENTICATION_FAILED_MESSAGE = 'Authentication failed!';
-	USER_WITH_THIS_EMAIL_ALREADY_EXIST = 'User with this email already exist😂';
+	USER_WITH_THIS_EMAIL_ALREADY_EXIST = 'User with this email already exist😕';
 	USER_WITH_THIS_EMAIL_NOT_FOUND = 'User with this email not found';
 	USER_IS_NOT_AUTHORIZED = 'User is not authorized';
 	INVALID_LINK_ACTIVATION = 'Invalid link activation';

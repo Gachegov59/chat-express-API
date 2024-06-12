@@ -14,6 +14,7 @@ export const connectChatDb = async () => {
 		logger.info('MongoDB connected chat');
 	} catch (error) {
 		console.log(error);
-		logger.error(error);
+		// logger.error(error);
+		logger.error('Error connecting to MongoDB for chat service', error);
 	}
 };
