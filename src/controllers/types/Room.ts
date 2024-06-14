@@ -25,12 +25,17 @@ interface IDeleteRoomReqBody {
 	userId: string;
 }
 
-interface IGetRoomsForUserBody {
-	userId: string;
+// interface IGetRoomsForUserBody {
+// 	userId: string;
+// }
+export interface IGetRoomsForUserQuery {
+	userId?: string;
 }
 
 export type createRoom = ControllerFunction<{}, ICreateRoomResBody, ICreateRoomReqBody, {}>;
 export type inviteUserToRoom = ControllerFunction<{}, {}, IInviteUserToRoomReqBody, {}>;
 export type leaveRoom = ControllerFunction<{}, {}, ILeaveRoomReqBody, {}>;
 export type deleteRoom = ControllerFunction<{}, {}, IDeleteRoomReqBody, {}>;
-export type getRoomsForUser = ControllerFunction<{}, {}, IGetRoomsForUserBody, {}>;
+// export type getRoomsForUser = ControllerFunction<{}, {}, IGetRoomsForUserBody, {}>;
+// export type getRoomsForUser = ControllerFunction;
+export type getRoomsForUser = ControllerFunction<{}, {}, {}, IGetRoomsForUserQuery>;

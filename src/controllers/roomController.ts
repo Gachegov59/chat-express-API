@@ -45,7 +45,11 @@ class roomController {
 
   getRoomsForUser: getRoomsForUser = async (req, res, next) => {
     try {
-      const { userId } = req.body;
+      const { userId } = req.query;
+      if (!userId) {
+        return res.status(400).json({ message: 'userId is required' });
+      }
+      console.log("🚀 ~ roomController ~ getRoomsForUser:getRoomsForUser= ~ userId:", userId)
       const rooms = await roomService.getRoomsForUser(userId);
       return res.json(rooms);
     } catch (error) {
