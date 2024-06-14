@@ -7,7 +7,7 @@ if (!JWT_ACCESS_SECRET || !JWT_REFRESH_SECRET) {
 	throw new Error('JWT secrets are not defined in environment variables');
 }
 
-type GenerateTokensPayload = { email: string; id: string; isActivated: boolean };
+type GenerateTokensPayload = { email: string; id: string; isActivated: boolean, firstName: string, lastName: string };
 type generateTokensReturn = {
 	accessToken: string;
 	refreshToken: string;

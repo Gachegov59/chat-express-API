@@ -14,10 +14,10 @@ class Endpoints {
 	ROOM: obejctString = {
 		ROOM_BASE_ROUTE: '/api/room',
 		CREATE: '/create',
-		DELETE: '/delete/:id',
+		DELETE: '/delete',
 		INVITE: '/invite',
 		LEAVE: '/leave',
-		GET_ROOMS: '/user/:userId',
+		GET_ROOMS: '/rooms',
 	};
 }
 

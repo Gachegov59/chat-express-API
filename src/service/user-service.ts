@@ -32,7 +32,13 @@ class UserService {
 
 		await mailService.sendActivationMail(email, `${services.MAIL.LINK_ACTIVATE}/${activationLink}`);
 
-		const userDTO = new UserDTO({ email: user.email, _id: user._id, isActivated: user.isActivated });
+		const userDTO = new UserDTO({
+			email: user.email,
+			_id: user._id,
+			isActivated: user.isActivated,
+			firstName: user.firstName,
+			lastName: user.lastName,
+		});
 		const tokens = await tokenService.generateTokens({ ...userDTO });
 
 		await tokenService.saveToken(userDTO.id, tokens.refreshToken);
@@ -58,7 +64,13 @@ class UserService {
 
 		if (!isPassEquals) throw ApiError.BadRequest(errors.WRONG_PASSORD);
 
-		const userDTO = new UserDTO({ email: user.email, _id: user._id, isActivated: user.isActivated });
+		const userDTO = new UserDTO({
+			email: user.email,
+			_id: user._id,
+			isActivated: user.isActivated,
+			firstName: user.firstName,
+			lastName: user.lastName,
+		});
 		const tokens = tokenService.generateTokens({ ...userDTO });
 		await tokenService.saveToken(userDTO.id, tokens.refreshToken);
 		return { ...tokens, user: userDTO };
@@ -91,7 +103,13 @@ class UserService {
 			throw ApiError.BadRequest(errors.USER_NOT_FOUND);
 		}
 
-		const userDTO = new UserDTO({ email: user.email, _id: user._id, isActivated: user.isActivated });
+		const userDTO = new UserDTO({
+			email: user.email,
+			_id: user._id,
+			isActivated: user.isActivated,
+			firstName: user.firstName,
+			lastName: user.lastName,
+		});
 		const tokens = tokenService.generateTokens({ ...userDTO });
 		await tokenService.saveToken(userDTO.id, tokens.refreshToken);
 
@@ -99,7 +117,7 @@ class UserService {
 	}
 
 	async getAllUsers() {
-		const users = await UserModel.find();
+		const users = await UserModel.find().select('firstName lastName _id');
 		return users;
 	}
 }
