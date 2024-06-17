@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document, model } from 'mongoose';
 import { IUser } from '../types/User';
-import { IRoom } from './RoomModel';
+import { IRoom } from '../types/Room';
 
 interface IMessage extends Document {
   sender: IUser['_id'];

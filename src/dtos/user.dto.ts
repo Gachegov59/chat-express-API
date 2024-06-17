@@ -1,5 +1,5 @@
 // type UserTOConstructor = { email: string; _id: string; isActivated: boolean };
-import { ObjectId, Types } from 'mongoose';
+import { Types } from 'mongoose';
 import { IUser } from '../types/User';
 
 type UserTOConstructor = Pick<IUser, 'email' | 'isActivated' | 'firstName' | 'lastName'> & {

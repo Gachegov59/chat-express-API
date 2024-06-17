@@ -11,12 +11,12 @@ interface IUser extends Document {
   firstName: string;
   lastName: string;
   password: string;
-  avatar?: string;
+  avatar: string | null;
   settings: UserSettings;
   isActivated: boolean;
-  activationLink?: string;
+  activationLink: string;
   status: boolean;
-  chatRooms?: [];
+  chatRooms: [];
 }
 
 export { IUser, UserSettings };

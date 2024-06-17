@@ -18,7 +18,11 @@ const roomSchema = new Schema<IRoom>({
   },
   image: { type: String },
   type: { type: String, enum: ['user', 'group'] },
-  counter: { type: Number, default: 0 },
+  counters: {
+    type: Map,
+    of: Number,
+    default: {},
+  },
   lastMessage: { type: lastMessageSchema },
   createdAt: { type: Date, default: Date.now },
 });

@@ -19,6 +19,12 @@ class Endpoints {
 		LEAVE: '/leave',
 		GET_ROOMS: '/rooms',
 	};
+	MESSAGE: obejctString = {
+		MESSAGE_BASE_ROUTE: '/api/messages',
+		CREATE: '/create',
+		ROOM_MESSAGES: '/:userId',
+	
+	};
 }
 
 class Errors {

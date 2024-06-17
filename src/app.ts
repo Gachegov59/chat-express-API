@@ -5,9 +5,12 @@ import cookieParser from 'cookie-parser';
 import { endpoints } from './config/constants';
 import errorMiddleware from './middlewares/error-middleware';
 import roomRouter from './routes/roomRouter';
+import http from 'http';
+import messageRouter from './routes/messageRouter';
 
 export function App() {
 	const app = express();
+	const server = http.createServer(app);
 
 	app.use(express.json());
 	app.use(cookieParser());
@@ -15,8 +18,10 @@ export function App() {
 
 	app.use(endpoints.USER.USERS_BASE_ROUTE, userRouter);
 	app.use(endpoints.ROOM.ROOM_BASE_ROUTE, roomRouter);
+	app.use(endpoints.MESSAGE.MESSAGE_BASE_ROUTE, messageRouter);
 	
 	app.use(errorMiddleware);
 
-	return app;
+
+	return {app, server};
 }

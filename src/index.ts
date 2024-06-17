@@ -1,14 +1,13 @@
 import 'dotenv/config';
 const PORT = process.env.PORT || 3000;
-
 import { App } from './app';
 import { connectChatDb } from './db/mongoose';
 
-const app = App();
+const {app, server} = App();
 
 connectChatDb()
 	.then(() => {
-		app.listen(PORT, () => {
+		server.listen(PORT, () => {
 			console.log(`http://localhost:${PORT}`);
 		});
 	})

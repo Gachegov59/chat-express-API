@@ -7,7 +7,7 @@ class roomController {
     try {
       const { name, userId } = req.body;
       const room = await roomService.createRoom(name, userId);
-      return res.json({ room: new RoomDTO(room) });
+      return res.json({ room: new RoomDTO(room, userId) });
     } catch (error) {
       next(error);
     }
@@ -49,7 +49,7 @@ class roomController {
       if (!userId) {
         return res.status(400).json({ message: 'userId is required' });
       }
-      console.log("🚀 ~ roomController ~ getRoomsForUser:getRoomsForUser= ~ userId:", userId)
+      // console.log("🚀 ~ roomController ~ getRoomsForUser:getRoomsForUser= ~ userId:", userId)
       const rooms = await roomService.getRoomsForUser(userId);
       return res.json(rooms);
     } catch (error) {

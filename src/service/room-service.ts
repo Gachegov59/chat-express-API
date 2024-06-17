@@ -9,6 +9,9 @@ class roomService {
 			name,
 			users: [new Types.ObjectId(userId)],
 			creator: new Types.ObjectId(userId),
+			settings: { allowGuests: true },
+			counter: 0,
+			createdAt: new Date(),
 		});
 		return room;
 	}

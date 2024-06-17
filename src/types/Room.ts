@@ -12,11 +12,11 @@ interface IRoom extends Document {
   name: string;
   users: Types.ObjectId[];
   creator: Types.ObjectId;
-  settings?: RoomSettings;
+  settings: RoomSettings;
   createdAt: Date;
   image?: string;
   type?: 'user' | 'group';
-  counter?: number;
+  counters: Map<string, number>;
   lastMessage?: LastMessage;
 }
 
